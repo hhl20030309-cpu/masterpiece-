@@ -331,6 +331,87 @@
         margin-top: 14px;
       }
     }
+
+    @media (max-width: 560px) {
+      .viewer {
+        height: 100dvh;
+        grid-template-rows: auto minmax(0, 1fr);
+        overflow: hidden;
+      }
+
+      .side {
+        padding: max(14px, env(safe-area-inset-top)) 18px 14px;
+        gap: 12px;
+      }
+
+      .back {
+        min-height: 34px;
+        padding: 0 12px;
+        font-size: 15px;
+      }
+
+      .viewer h2 {
+        margin: 16px 0 8px;
+        font-size: 44px;
+        line-height: 1;
+      }
+
+      .viewer p {
+        max-width: 92vw;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .counter {
+        margin-top: 16px;
+        font-size: 13px;
+      }
+
+      .thumb-rail {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(16px, 1fr));
+        gap: 5px;
+        width: 100%;
+        margin-top: 10px;
+        overflow: visible;
+      }
+
+      .rail-dot,
+      .rail-dot.active {
+        width: auto;
+        height: 3px;
+      }
+
+      .hint {
+        font-size: 11px;
+        line-height: 1.45;
+      }
+
+      .photo-stage {
+        display: grid;
+        place-items: center;
+        min-height: 0;
+        padding: 12px 10px calc(18px + env(safe-area-inset-bottom));
+      }
+
+      .photo-layer {
+        inset: 12px 10px calc(18px + env(safe-area-inset-bottom));
+      }
+
+      .photo-layer img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .caption {
+        left: 18px;
+        bottom: calc(26px + env(safe-area-inset-bottom));
+        max-width: calc(100% - 36px);
+        padding: 8px 11px;
+        font-size: 13px;
+      }
+    }
   </style>
 </head>
 <body>
