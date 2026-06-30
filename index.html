@@ -602,6 +602,8 @@
     const layers = document.querySelector("#layers");
     const caption = document.querySelector("#caption");
     const photoStage = document.querySelector("#photoStage");
+    const assetVersion = "20260630-portfolio-full";
+    const imageUrl = file => `./thumbs/${file}?v=${assetVersion}`;
     let activeGroup = null;
     let activeIndex = 0;
     let lastIndex = -1;
@@ -609,7 +611,7 @@
     categories.innerHTML = groups.map(group => `
       <button class="category-card" data-group="${group.key}">
         <span class="cover-collage">
-          ${group.cover.map(file => `<img src="thumbs/${file}" alt="">`).join("")}
+          ${group.cover.map(file => `<img src="${imageUrl(file)}" alt="">`).join("")}
         </span>
         <span class="cover-shade"></span>
         <span class="card-copy">
@@ -628,7 +630,7 @@
       viewerDesc.textContent = group.desc;
       layers.innerHTML = group.photos.map(([file, title], index) => `
         <div class="photo-layer ${index === 0 ? "active" : ""}">
-          <img src="thumbs/${file}" alt="${title}">
+          <img src="${imageUrl(file)}" alt="${title}">
         </div>
       `).join("");
       markImageOrientation();
